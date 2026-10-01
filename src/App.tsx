@@ -1,10 +1,20 @@
 import { BrowserRouter, Routes, Route } from "react-router-dom"
 import Blog from "./pages/Blog"
 import BlogPost from "./pages/BlogPost"
-// Home zaten sende var, onu koru
-import Home from "./pages/Home" // eğer ismi farklıysa düzelt
 
-function App() {
+// Geçici Home - senin asıl landing'in neyse buraya koyacağız
+// Şimdilik basit tutuyoruz ki build geçsin
+function Home() {
+  return (
+    <div className="min-h-screen flex flex-col items-center justify-center p-10">
+      <h1 className="text-5xl font-bold">Arcline</h1>
+      <p className="mt-4 text-muted-foreground">Terminal-native AI editor</p>
+      <a href="/blog" className="mt-8 underline">Blog →</a>
+    </div>
+  )
+}
+
+export default function App() {
   return (
     <BrowserRouter>
       <Routes>
@@ -15,5 +25,3 @@ function App() {
     </BrowserRouter>
   )
 }
-
-export default App
