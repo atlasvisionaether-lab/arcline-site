@@ -1,5 +1,6 @@
 import { defineConfig } from 'vite';
 import react from '@vitejs/plugin-react';
+import tailwindcss from '@tailwindcss/vite';
 import path from 'path';
 
 const siteUrlPlugin = () => ({
@@ -14,7 +15,16 @@ const siteUrlPlugin = () => ({
 });
 
 export default defineConfig({
-  plugins: [react(), siteUrlPlugin()],
+  plugins: [react(), tailwindcss(), siteUrlPlugin()],
+  build: {
+    rollupOptions: {
+      output: {
+        manualChunks(id) {
+          return id.includes('node_modules/motion') ? 'motion' : undefined;
+        },
+      },
+    },
+  },
   resolve: {
     alias: {
       '@': path.resolve(__dirname, './src'),
