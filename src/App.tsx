@@ -2,8 +2,6 @@ import { BrowserRouter, Routes, Route } from "react-router-dom"
 import Blog from "./pages/Blog"
 import BlogPost from "./pages/BlogPost"
 
-// Geçici Home - senin asıl landing'in neyse buraya koyacağız
-// Şimdilik basit tutuyoruz ki build geçsin
 function Home() {
   return (
     <div className="min-h-screen flex flex-col items-center justify-center p-10">
